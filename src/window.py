@@ -19,16 +19,20 @@ if __name__=='__main__':
 
   button_box = [[QPushButton("", your_window) for i in range(0,9)] for j in range(0,9)]
 
-  def change_button(i,j):
-    button_box[i][j].setText('1')
-
   for i in range(0, 9):
     for j in range(0,9):
       button_box[i][j].setGeometry(50*i, 50*j, 50, 50)
 
+  class Change_button:
+    def __init__(self, i, j):
+      self.x = i
+      self.y = j
+    def __call__(self):
+      button_box[self.x][self.y].setText('1')
+
   for i in range(0, 9):
     for j in range(0,9):
-      button_box[i][j].clicked.connect(lambda: change_button(i,j))
+      button_box[i][j].clicked.connect(Change_button(i,j))
 
   your_window.show()
 #  enemy_window.show()
