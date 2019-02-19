@@ -1,13 +1,16 @@
 # Number place
 
-## Python
+## Python3
 
-### tkinter
+## Install
+
+`sudo pip install pyqt5`
 
 ## thinking Code
 
 [Prolog](https://en.wikipedia.org/wiki/Prolog)っぽく解いてみたい.
 
+# 初級
 [事実]
 - マス目は9×9, 問題は与えられる.
 
@@ -15,3 +18,8 @@
 - 縦横の９マスには同じものが入らない.
 - 3×3の同じボックスには同じものが入らない.
 - 1から9までの数字が入る.
+
+# 中級
+確率
+# 上級
+machine_learning
