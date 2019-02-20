@@ -6,8 +6,12 @@ from PyQt5.QtWidgets import QApplication,QWidget
 #from PyQt5.QtWidgets import QPushButton
 
 class Base:
+    count = 0
     def __init__(self, title, size_list = (450,600)):
-        self.app = QApplication(sys.argv)
+        print(Base.count)
+        if Base.count == 0:
+            Base.app = QApplication(sys.argv)
+        Base.count += 1
         self._window = QWidget()
         self._window.setWindowTitle(title)
         self._window.resize(size_list[0], size_list[1])
@@ -16,7 +20,10 @@ class Base:
         self._window.show()
 
     def __del__(self):
-        self.app.exec()
+        Base.count -= 1
+        print(Base.count)
+        if Base.count == 0:
+            self.app.exec()
 
     def is_finish(self):
         pass

@@ -23,6 +23,7 @@ class EnemyWindow(window_numpla.Base):
         self.__button_box[y_pos][x_pos].setText(number)
     
     def __del__(self):
+        self.set_button_text(2,3,'3')
         print("__del__Enemy")
         super(EnemyWindow, self).__del__()
 
