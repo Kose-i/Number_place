@@ -7,7 +7,7 @@ class PlayerWindow(window_numpla.Base):
     print("__init__Player")
     super(PlayerWindow, self).__init__("Player-board")
   def run(self):
-#    self.__window.
+    self._window.
     super(PlayerWindow, self).run()
   def __del__(self):
     print("__del__Player")
