@@ -16,7 +16,7 @@ class Base:
         self._window.show()
 
     def __del__(self):
-        sys.exit(self.app.exec())
+        self.app.exec()
 
     def is_finish(self):
         pass

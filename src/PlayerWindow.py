@@ -20,11 +20,11 @@ class PlayerWindow(window_numpla.Base):
         super(PlayerWindow, self).__init__("Player-board")
 
         self.__button_box = [[QPushButton("", self._window) for i in range(0,9)] for j in range(0,9)]
-#TODO use enumerate
-        for i in range(0, 9):
-            for j in range(0,9):
-                self.__button_box[i][j].setGeometry(50*i, 50*j, 50, 50)
-                self.__button_box[i][j].clicked.connect(Change_button(self, j,i))
+
+        for i, list_line in enumerate(self.__button_box):
+            for j, list_elem in enumerate(list_line):
+                list_elem.setGeometry(50*i, 50*j, 50, 50)
+                list_elem.clicked.connect(Change_button(self, j,i))
 
     def run(self):
         super(PlayerWindow, self).run()
