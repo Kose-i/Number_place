@@ -2,6 +2,11 @@
 
 ## Python3
 
+## TODO
+- [] pyqt5 -> Tkinter
+- [] Baseとなるものを作る
+- [] Computer 実装
+
 ## Install
 
 `sudo pip install pyqt5`
@@ -20,6 +25,7 @@
 - 1から9までの数字が入る.
 
 # 中級
-確率
+確率を使って考える
+
 # 上級
 machine_learning
