@@ -8,7 +8,7 @@ class EnemyWindow(window_numpla.Base):
 
     def __init__(self):
         print("__init__Enemy")
-        super(EnemyWindow, self).__init__("Enemy-board", (270,300))
+        super(EnemyWindow, self).__init__("Enemy-board", pos=(450, 0) , size=(270,300))
 
         self.__button_box = [[QPushButton("", self._window) for i in range(0,9)] for j in range(0,9)]
 
@@ -24,8 +24,8 @@ class EnemyWindow(window_numpla.Base):
     
     def __del__(self):
         self.set_button_text(2,3,'3')
-        print("__del__Enemy")
         super(EnemyWindow, self).__del__()
+        print("__del__Enemy")
 
 if __name__=='__main__':
     enemy = EnemyWindow()
