@@ -3,9 +3,10 @@
 ## Python3
 
 ## TODO
-- [ ] pyqt5 -> Tkinter
-- [ ] Baseとなるものを作る
+- [ ] (RESET選択範囲)というボタンを作る
+- [ ] BaseとなるComputerを作る
 - [ ] Computer 実装
+- [ ] pyqt5 -> Tkinter
 
 ## Install
 
