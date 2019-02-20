@@ -1,3 +1,0 @@
-def talk():
-  print("talker")
-
