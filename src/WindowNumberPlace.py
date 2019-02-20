@@ -3,7 +3,7 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication,QWidget
-from PyQt5.QtWidgets import QPushButton
+#from PyQt5.QtWidgets import QPushButton
 
 class Base:
     def __init__(self, title, size_list = (450,600)):
@@ -16,11 +16,11 @@ class Base:
         self._window.show()
 
     def __del__(self):
-        self.app.exec_()
+        sys.exit(self.app.exec())
 
     def is_finish(self):
         pass
 
 if __name__=='__main__':
-    num = WindowNumberPlace("hehe", (250, 300))
+    num = Base("hehe", (250, 300))
     num.run()

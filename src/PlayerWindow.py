@@ -33,7 +33,7 @@ class PlayerWindow(window_numpla.Base):
         self.__button_box[y_pos][x_pos].setText('1')
     
     def __del__(self):
-        print("__del__Player")
+        print("del__Player")
         super(PlayerWindow, self).__del__()
 
 if __name__=='__main__':
