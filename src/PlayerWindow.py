@@ -24,6 +24,7 @@ class PlayerWindow(window_numpla.Base):
         self.__input_messagebox = QLineEdit(self._window)
         self.__input_messagebox.setText("")
         self.__input_messagebox.displayText()
+        self.__input_messagebox.setGeometry(30, 500, 200, 50)
 
         self.__button_box = [[QPushButton("", self._window) for i in range(0,9)] for j in range(0,9)]
         for i, list_line in enumerate(self.__button_box):
