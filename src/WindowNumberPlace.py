@@ -5,7 +5,7 @@ import sys
 from PyQt5.QtWidgets import QApplication,QWidget
 from PyQt5.QtWidgets import QPushButton
 
-class WindowNumberPlace:
+class Base:
   def __init__(self, title, size_list = (450,600)):
     self.app = QApplication(sys.argv)
     self.__window = QWidget()
@@ -17,5 +17,5 @@ class WindowNumberPlace:
     self.app.exec_()
 
 if __name__=='__main__':
-  num = WindowNumberPlace("hehe")
+  num = WindowNumberPlace("hehe", (250, 300))
   num.run()
