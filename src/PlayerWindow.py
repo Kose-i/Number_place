@@ -12,7 +12,7 @@ import WindowNumberPlace as window_numpla
 class DataCell:
     def __init__(self):
         self.string = "" 
-        self.num = '0'
+        self.num = 0
 
 class Change_button():
     def __init__(self,button_class, x, y):
@@ -64,7 +64,11 @@ class PlayerWindow(window_numpla.Base):
     def set_button_text(self, x_pos, y_pos):
         self.__output_messagebox.setText("[x]:"+str(x_pos)+" [y]:"+str(y_pos))
         self.__data_cell[self.__last_y_pos][self.__last_x_pos].string = self.__input_messagebox.text()
-        self.__button_box[y_pos][x_pos].setText('1')
+        self.__data_cell[y_pos][x_pos].num += 1
+        if  self.__data_cell[y_pos][x_pos].num > 9:
+            self.__data_cell[y_pos][x_pos].num -= 10
+        display_text = str(self.__data_cell[y_pos][x_pos].num) if self.__data_cell[y_pos][x_pos].num > 0 else ""
+        self.__button_box[y_pos][x_pos].setText(display_text)
         self.__input_messagebox.setText(self.__data_cell[y_pos][x_pos].string)
         self.__last_y_pos = y_pos
         self.__last_x_pos = x_pos
