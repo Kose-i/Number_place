@@ -3,9 +3,9 @@
 ## Python3
 
 ## TODO
-- [] pyqt5 -> Tkinter
-- [] Baseとなるものを作る
-- [] Computer 実装
+- [ ] pyqt5 -> Tkinter
+- [ ] Baseとなるものを作る
+- [ ] Computer 実装
 
 ## Install
 
