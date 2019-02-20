@@ -52,17 +52,18 @@ class PlayerWindow(window_numpla.Base):
         self.label = QLabel(self._window)
         self.qicon = QIcon('img/PlayerImg.jpg')
         self.label.setPixmap(self.qicon.pixmap(80, 80))
-        #label.setPixmap(qicon.pixmap(80, 80, QIcon.Disabled))
         self.label.setGeometry(300, 500, 80, 80)
 
         self.__is_not_access = [[False for i in range(0,9)] for j in range(0, 9)]
 
-    def set_problem(self, *problem):
+    def set_problem(self, problem):
         for  i, list_line in enumerate(self.__button_box):
             for j, list_elem in enumerate(list_line):
                 list_elem = problem[i][j]
                 if problem[i][j] != 0:
                     self.__is_not_access[i][j] = True
+                    self.__data_cell[i][j].num = problem[i][j]
+                    self.__button_box[i][j].setText(str(self.__data_cell[i][j].num))
 
     def run(self):
         super(PlayerWindow, self).run()
@@ -72,10 +73,10 @@ class PlayerWindow(window_numpla.Base):
 
     def set_button_text(self, x_pos, y_pos):
         self.__output_messagebox.setText("[x]:"+str(x_pos)+" [y]:"+str(y_pos))
-        self.__data_cell[self.__last_y_pos][self.__last_x_pos].string = self.__input_messagebox.text()
+        self.__data_cell[self.__last_y_pos][self.__last_x_pos].string = str(self.__input_messagebox.text())
         self.__last_y_pos = y_pos
         self.__last_x_pos = x_pos
-        if  self.__is_not_access[x_pos][y_pos] == True:
+        if  self.__is_not_access[y_pos][x_pos] == True:
             return
         self.__data_cell[y_pos][x_pos].num += 1
         if  self.__data_cell[y_pos][x_pos].num > 9:
