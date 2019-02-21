@@ -36,6 +36,12 @@ class Check_confirm_button:
     def __call__(self):
         PlayerWindow.set_button_confirm(self.cls)
 
+class Check_finish_button:
+    def __init__(self, button_class):
+        self.cls = button_class
+    def __call__(self):
+        PlayerWindow.set_button_finish(self.cls)
+
 
 class PlayerWindow(window_numpla.Base):
 
@@ -82,7 +88,7 @@ class PlayerWindow(window_numpla.Base):
         self.finish_button = QPushButton("", self._window)
         self.finish_button.setGeometry(220, 490, 70, 20)
         self.finish_button.setText("Finish")
-        #self.finish_button.clicked.connect(self.set_finish())
+        self.finish_button.clicked.connect(Check_finish_button(self))
 
 #INFO confirm_button
         self.confirm_button = QPushButton("", self._window)
@@ -153,12 +159,62 @@ class PlayerWindow(window_numpla.Base):
                 for j, list_elem in enumerate(list_line):
                     list_elem.setStyleSheet("background-color: white")
 
-    def set_finish(self):
-        print(super(PlayerWindow, self).is_finish())
+    @staticmethod
+    def is_in_one_to_nine_list(lists):
+        if len(lists) != 9:
+            return False
+        else:
+            for i in range(1,10):
+                if lists.count( i ) != 1:
+                    return False
+            return True
+    def is_line_good(self):
+        for i in range(0,9):
+            tmp = [0]*9
+            for j in range(0,9):
+                tmp[j] = self.__data_cell[i][j].num
+            print(tmp)
+            if self.is_in_one_to_nine_list(tmp) == False:
+                return False
+        return True
+    def is_row_good(self):
+        for i in range(0,9):
+            tmp = [0]*9
+            for j in range(0,9):
+                tmp[j] = self.__data_cell[j][i].num
+            print(tmp)
+            if self.is_in_one_to_nine_list(tmp) == False:
+                return False
+        return True
+    def is_block_good(self):
+        initial_i_pos = 0
+        initial_j_pos = 0
+        for i in range(0,3):
+            tmp = [0]*9
+            for j in range(0, 3):
+                tmp[i * 3 + j] = self.__data_cell[initial_i_pos + i][initial_j_pos + j].num
+                print(tmp)
+            if self.is_in_one_to_nine_list(tmp) == False:
+                return False
+            initial_i_pos += 3
+            if initial_i_pos >= 9:
+                initial_i_pos = 0
+                initial_j_pos += 3
+        return True
+
+    def is_good_result(self):
+        if  self.is_line_good() == True and self.is_row_good() == True and self.is_block_good() == True:
+            return True
+        else:
+            return False
+
+    def set_button_finish(self):
+        if self.is_good_result() == True:
+            print(super(PlayerWindow, self).is_finish())
     
     def __del__(self):
-        super(PlayerWindow, self).__del__()
         print("del__Player")
+        super(PlayerWindow, self).__del__()
 
 
 if __name__=='__main__':
