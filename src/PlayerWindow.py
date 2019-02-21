@@ -210,8 +210,8 @@ class PlayerWindow(window_numpla.Base):
 
     def set_button_finish(self):
         if self.is_good_result() == True:
-            print("Finish!!")
             print(super(PlayerWindow, self).is_finish())
+            self.output_timer_messagebox.setText("Finish")
         else:
             print("Failure~~")
     

@@ -2,16 +2,18 @@
 
 import time
 
-import EnemyWindow
 import PlayerWindow
 import ProblemChangeList as probtolist
 import ComputerEasy
 
+def main():
+    pass
+
 if __name__=='__main__':
+    main()
     player = PlayerWindow.PlayerWindow()
-#    enemy = EnemyWindow.EnemyWindow()
     enemy = ComputerEasy.ComputerEasy()
-    problem = probtolist.prob_to_list("../problem/problem1.txt")
+    problem = probtolist.prob_to_list("../problem/confirm1.txt")
     player.set_problem(problem)
     enemy.set_problem(problem)
     player.run()
