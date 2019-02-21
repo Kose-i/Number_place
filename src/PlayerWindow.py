@@ -113,6 +113,7 @@ class PlayerWindow(window_numpla.Base):
 #INFO __is_confirm
         self.__is_confirm = False
 
+        super(PlayerWindow, self).run()
 
     def set_problem(self, problem):
         for  i, list_line in enumerate(self.button_box):
@@ -124,7 +125,7 @@ class PlayerWindow(window_numpla.Base):
                     self.button_box[i][j].setText(str(self.__data_cell[i][j].num))
 
     def run(self):
-        super(PlayerWindow, self).run()
+        pass
 
     def loose(self):
         self.label.setPixmap(self.player_icon.pixmap(80, 80, QIcon.Disabled))

@@ -30,9 +30,13 @@ class EnemyWindow(window_numpla.Base):
         self.player_icon = QIcon('img/EnemyImg.jpg')
         self.label.setPixmap(self.player_icon.pixmap(50, 50))
         self.label.setGeometry(210, 270, 50, 50)
+        super(EnemyWindow, self).run()
 
     def run(self):
-        super(EnemyWindow, self).run()
+        pass
+
+    def speak(self, str):
+        self.output_messagebox.setText(str)
 
     def set_button_number(self, x_pos, y_pos, number):
         self.button_box[y_pos][x_pos].setText(str(number))
