@@ -3,7 +3,9 @@
 ## Python3
 
 ## TODO
-- [ ] (RESET選択範囲)というボタンを作る
+- [X] (RESET選択範囲)というボタンを作る
+   -> Confirm buttonで代用
+- [X] BaseとなるPlayerを作る
 - [ ] BaseとなるComputerを作る
 - [ ] Computer 実装
 - [ ] pyqt5 -> Tkinter
