@@ -18,7 +18,7 @@ class EnemyWindow(window_numpla.Base):
         self.button_box = [[QPushButton("", self._window) for i in range(0,9)] for j in range(0,9)]
         for i, list_line in enumerate(self.button_box):
             for j, list_elem in enumerate(list_line):
-                list_elem.setGeometry(30*i, 30*j, 30, 30)
+                list_elem.setGeometry(30*j, 30*i, 30, 30)
 
 #INFO output_messagebox - talk -
         self.output_messagebox = QLineEdit(self._window)
@@ -31,6 +31,24 @@ class EnemyWindow(window_numpla.Base):
         self.label.setPixmap(self.player_icon.pixmap(50, 50))
         self.label.setGeometry(210, 270, 50, 50)
         super(EnemyWindow, self).run()
+#INFO __is_access -> getter -> access[i][j]
+        self.__is_not_access = [[False for i in range(0,9)] for j in range(0, 9)] # True from problem
+        self.cell_num = [[0]*9]*9
+
+    def get_can_access(self, x_pos, y_pos):
+        if self.__is_not_access[y_pos][x_pos] == True:
+            return False
+        else:
+            return True
+
+    def set_problem(self, problem):
+        for  i, list_line in enumerate(self.button_box):
+            for j, list_elem in enumerate(list_line):
+                list_elem = problem[i][j]
+                if problem[i][j] != 0:
+                    self.__is_not_access[i][j] = True
+                    self.cell_num[i][j] = problem[i][j]
+                    self.button_box[i][j].setText(str(self.cell_num[i][j]))
 
     def run(self):
         pass

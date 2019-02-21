@@ -53,7 +53,7 @@ class PlayerWindow(window_numpla.Base):
         self.button_box = [[QPushButton("", self._window) for i in range(0,9)] for j in range(0,9)]
         for i, list_line in enumerate(self.button_box):
             for j, list_elem in enumerate(list_line):
-                list_elem.setGeometry(50*i, 50*j, 50, 50)
+                list_elem.setGeometry(50*j, 50*i, 50, 50)
                 list_elem.clicked.connect(Change_button(self, j,i))
 
 #INFO output_messagebox - pos -

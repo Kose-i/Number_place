@@ -11,5 +11,6 @@ if __name__=='__main__':
     enemy = EnemyWindow.EnemyWindow()
     problem = probtolist.prob_to_list("../problem/confirm1.txt")
     player.set_problem(problem)
+    enemy.set_problem(problem)
     player.run()
     enemy.run()
