@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QApplication,QWidget
 
 class Base:
     count = 0
+    rank_number = 0
     def __init__(self, title, pos = (0, 0), size = (450,600)):
         if Base.count == 0:
             Base.app = QApplication(sys.argv)
@@ -24,7 +25,8 @@ class Base:
             self.app.exec()
 
     def is_finish(self):
-        pass
+        Base.rank_number += 1
+        return Base.rank_number
 
 if __name__=='__main__':
     num = Base("hehe", (250, 300))
