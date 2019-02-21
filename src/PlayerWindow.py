@@ -173,7 +173,6 @@ class PlayerWindow(window_numpla.Base):
             tmp = [0]*9
             for j in range(0,9):
                 tmp[j] = self.__data_cell[i][j].num
-            print(tmp)
             if self.is_in_one_to_nine_list(tmp) == False:
                 return False
         return True
@@ -182,18 +181,18 @@ class PlayerWindow(window_numpla.Base):
             tmp = [0]*9
             for j in range(0,9):
                 tmp[j] = self.__data_cell[j][i].num
-            print(tmp)
             if self.is_in_one_to_nine_list(tmp) == False:
                 return False
         return True
+
     def is_block_good(self):
         initial_i_pos = 0
         initial_j_pos = 0
-        for i in range(0,3):
+        for k in range(0,3):
             tmp = [0]*9
-            for j in range(0, 3):
-                tmp[i * 3 + j] = self.__data_cell[initial_i_pos + i][initial_j_pos + j].num
-                print(tmp)
+            for i in range(0,3):
+                for j in range(0, 3):
+                    tmp[i * 3 + j] = self.__data_cell[initial_i_pos + i][initial_j_pos + j].num
             if self.is_in_one_to_nine_list(tmp) == False:
                 return False
             initial_i_pos += 3
@@ -210,7 +209,10 @@ class PlayerWindow(window_numpla.Base):
 
     def set_button_finish(self):
         if self.is_good_result() == True:
+            print("Finish!!")
             print(super(PlayerWindow, self).is_finish())
+        else:
+            print("Failure~~")
     
     def __del__(self):
         print("del__Player")
