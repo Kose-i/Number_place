@@ -6,7 +6,7 @@
 - [X] (RESET選択範囲)というボタンを作る
    -> Confirm buttonで代用
 - [X] BaseとなるPlayerを作る
-- [ ] BaseとなるComputerを作る
+- [X] BaseとなるComputerを作る
 - [ ] Computer 実装
 - [ ] pyqt5 -> Tkinter
 
@@ -28,7 +28,7 @@
 - 1から9までの数字が入る.
 
 # 中級
-確率を使って考える
+数独として解く
 
 # 上級
 machine_learning
