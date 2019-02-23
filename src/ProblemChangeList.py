@@ -9,6 +9,7 @@ def prob_to_list(file_name):
             ans_list[i][j] = int(str_box[i][j])
     return ans_list
 
-if __name__=='__main__':
-    lists = prob_to_list("../problem/problem1.txt")
-    print(lists)
+#if __name__=='__main__':
+#    lists = prob_to_list("../problem/problem1.txt")
+#    for i, lists_line in enumerate(lists):
+#        print(lists_line)
