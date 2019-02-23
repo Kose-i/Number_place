@@ -33,7 +33,7 @@ class EnemyWindow(window_numpla.Base):
         super(EnemyWindow, self).run()
 #INFO __is_access -> getter -> access[i][j]
         self.__is_not_access = [[False for i in range(0,9)] for j in range(0, 9)] # True from problem
-        self.cell_num = [[0]*9]*9
+        self.cell_num = [[[0]for i in range(0,9)]for j in range(0,9)]
 
     def get_can_access(self, x_pos, y_pos):
         if self.__is_not_access[y_pos][x_pos] == True:
@@ -48,6 +48,7 @@ class EnemyWindow(window_numpla.Base):
                 if problem[i][j] != 0:
                     self.__is_not_access[i][j] = True
                     self.cell_num[i][j] = problem[i][j]
+                    print(self.cell_num)
                     self.button_box[i][j].setText(str(self.cell_num[i][j]))
 
     def run(self):
@@ -62,11 +63,10 @@ class EnemyWindow(window_numpla.Base):
         self.button_box[y_pos][x_pos].setText("")
     
     def __del__(self):
-        self.set_button_number(2,3,3)
         super(EnemyWindow, self).__del__()
         print("__del__Enemy")
 
 if __name__=='__main__':
     enemy = EnemyWindow()
-    enemy.set_button_number(2,3,'3')
+    #enemy.set_button_number(2,3,'3')
     enemy.run()
