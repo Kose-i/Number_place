@@ -36,3 +36,6 @@
 
 # 上級
 1つの正解を変換することにより,正解を導く
+
+# 参考
+[数独を数学する]:(http://www.seidosha.co.jp/book/index.php?id=2050)
