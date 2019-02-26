@@ -6,7 +6,8 @@
 - [X] (RESET選択範囲)というボタンを作る
    -> Confirm buttonで代用
 - [X] BaseとなるPlayerを作る
-- [X] BaseとなるComputerを作る
+- [X](checked) BaseとなるComputerを作る
+- [ ] 並列化
 - [ ] Computer 実装
 - [ ] pyqt5 -> Tkinter
 
