@@ -103,6 +103,10 @@ class ComputerEasy(EnemyWindow.EnemyWindow):
           self.update_first_step()
           self.update_button_print()
           self.update_second_step()
+          if self.__now_open == 81:
+              speakString = "I am finish. ranking:" + str(self.is_finish())
+              self.speak(speakString)
+              break
 
 
 if __name__=='__main__':
