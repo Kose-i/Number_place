@@ -2,6 +2,8 @@
 
 ## Python3
 
+![Screenshot-img](./Screenshot.png)
+
 ## TODO
 - [X] (RESET選択範囲)というボタンを作る
    -> Confirm buttonで代用
