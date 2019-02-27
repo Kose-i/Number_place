@@ -48,7 +48,7 @@ class EnemyWindow(window_numpla.Base):
                 if problem[i][j] != 0:
                     self.__is_not_access[i][j] = True
                     self.cell_num[i][j] = problem[i][j]
-                    print(self.cell_num)
+#                    print(self.cell_num)
                     self.button_box[i][j].setText(str(self.cell_num[i][j]))
 
     def run(self):

@@ -2,13 +2,18 @@
 
 ## Python3
 
-![Screenshot-img](./Screenshot.png)
+左側のplayer-boardに回答をつけて行きます
+数字を埋め終わったら,finishボタンをクリックします.
+confirmボタンをクリックすることで,あらかじめ与えられた問題と,自分が入力した箇所を比較することができます.
+自分が入力した箇所は,緑色でマークアップされます.
+
+![Screenshot-img](img/Screenshot.png)
 
 ## TODO
 - [X] (RESET選択範囲)というボタンを作る
    -> Confirm buttonで代用
 - [X] BaseとなるPlayerを作る
-- [X](checked) BaseとなるComputerを作る
+- [X] BaseとなるComputerを作る
 - [ ] 並列化
 - [ ] Computer 実装
 - [ ] pyqt5 -> Tkinter

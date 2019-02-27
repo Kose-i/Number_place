@@ -109,8 +109,8 @@ class ComputerEasy(EnemyWindow.EnemyWindow):
               break
 
 
-if __name__=='__main__':
-    enemy = ComputerEasy()
-    problem = probtolist.prob_to_list("../problem/problem1.txt")
-    enemy.set_problem(problem)
-    enemy.run()
+#if __name__=='__main__':
+#    enemy = ComputerEasy()
+#    problem = probtolist.prob_to_list("../problem/problem1.txt")
+#    enemy.set_problem(problem)
+#    enemy.run()
