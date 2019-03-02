@@ -3,6 +3,7 @@
 
 
 ## Player_Window
+
 |API|How to Use|
 ---
 |9X9 button|マス目|
