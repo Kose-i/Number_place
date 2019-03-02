@@ -36,4 +36,4 @@ confirmボタンをクリックすることで,あらかじめ与えられた問
 
 # 参考
 
-[数独を数学する]:(http://www.seidosha.co.jp/book/index.php?id=2050)
+[数独を数学する](http://www.seidosha.co.jp/book/index.php?id=2050)
