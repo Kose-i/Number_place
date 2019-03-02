@@ -16,7 +16,7 @@ if __name__=='__main__':
     if len(sys.argv) == 2:
       prob_str = sys.argv[1]
     else:
-      prob_str = "../problem/problem3.txt"
+      prob_str = "../problem/problem5.txt"
 
     player = PlayerWindow.PlayerWindow()
     enemy = Computer.Computer()

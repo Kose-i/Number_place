@@ -95,10 +95,10 @@ class Computer(EnemyWindow.EnemyWindow):
 
     def update_button_print(self):
         self.__now_open = 0
-        for i in range(0,9):
-            for j in range(0,9):
-                if len(self.__cell_list[i][j]) == 1:
-                    self.set_button_number(i, j, self.__cell_list[i][j][0])
+        for i, list_line in enumerate(self.__cell_list):
+            for j, list_elem in enumerate(list_line):
+                if len(list_elem) == 1:
+                    self.set_button_number(i, j, list_elem[0])
                     self.__now_open += 1
 
     def print_cell_list(self):
@@ -160,16 +160,16 @@ class Computer(EnemyWindow.EnemyWindow):
                         tmp_lists_update, ok = self.second_run_update(tmp_lists)
                         if ok == True:
                             return tmp_lists_update, True
-        return lists, True
+        return [], False
 
     def second_run(self):
         tmp_cell_list = copy.deepcopy(self.__cell_list)
         tmp_cell_list, ok = self.second_run_update(tmp_cell_list)
         if ok == True:
             self.__cell_list = tmp_cell_list
+            self.finish()
         else:
             self.speak("Not answer")
-#        self.update_second_step()
         self.update_button_print()
 
     def finish(self):
