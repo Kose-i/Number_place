@@ -42,7 +42,7 @@ class Computer(EnemyWindow.EnemyWindow):
         for i in range(0,3):
             for j in range(0,3):
                 if lists[block_line+i][block_row+j].count(target_num) > 0:
-                    if i == line_num and j == row_num:
+                    if line_num == block_line +i and row_num == block_row +j:
                         pass
                     else:
                         lists[block_line+i][block_row+j].remove(target_num)
@@ -100,7 +100,6 @@ class Computer(EnemyWindow.EnemyWindow):
                 if len(self.__cell_list[i][j]) == 1:
                     self.set_button_number(i, j, self.__cell_list[i][j][0])
                     self.__now_open += 1
-        #print(self.__now_open)
 
     def print_cell_list(self):
         for i in range(0,9):
@@ -129,31 +128,26 @@ class Computer(EnemyWindow.EnemyWindow):
                     Computer.del_line_cell_list(lists, lists[i][j][0], i, j)
                     Computer.del_block_cell_list(lists, lists[i][j][0], i, j)
 
-    @staticmethod
-    def is_ok_update(lists):
+    def is_ok_update(self, lists):
         for i, cell_line in enumerate(lists):
             for j, elem in enumerate(cell_line):
-                if len(elem) == 0:
+                if self.get_can_access(i,j) == True and len(elem) == 0:
                     return False
         return True
 
-    @staticmethod
-    def is_finish_update(lists):
+    def is_finish_update(self, lists):
         for i, cell_line in enumerate(lists):
             for j, cell_elem in enumerate(cell_line):
-                if len(cell_elem) != 1:
+                if self.get_can_access(j, i) == True and len(cell_elem) != 1:
                     return False
         return True
 
-    @staticmethod
-    def second_run_update(lists):
-        print("Start second_run_update")
+    def second_run_update(self, lists):
         Computer.del_update_cell(lists)
-        if Computer.is_ok_update(lists) == False:
+        if self.is_ok_update(lists) == False:
             return [], False
-        if Computer.is_finish_update(lists) == True:
+        if self.is_finish_update(lists) == True:
             return lists, True
-        print("Stop second_run_update")
         for i, line_lists in enumerate(lists):
             for j, elem_lists in enumerate(line_lists):
                 if len(elem_lists) != 1:
@@ -162,16 +156,15 @@ class Computer(EnemyWindow.EnemyWindow):
                         tmp = []
                         tmp.append(elem)
                         tmp_lists[i][j] = tmp
-                        tmp_lists_update, ok = Computer.second_run_update(tmp_lists)
+                        tmp_lists_update = []
+                        tmp_lists_update, ok = self.second_run_update(tmp_lists)
                         if ok == True:
                             return tmp_lists_update, True
-        if Computer.is_ok_update(lists) == False:
-            return [],False
         return lists, True
 
     def second_run(self):
         tmp_cell_list = copy.deepcopy(self.__cell_list)
-        tmp_cell_list, ok = Computer.second_run_update(tmp_cell_list)
+        tmp_cell_list, ok = self.second_run_update(tmp_cell_list)
         if ok == True:
             self.__cell_list = tmp_cell_list
         else:
@@ -184,7 +177,7 @@ class Computer(EnemyWindow.EnemyWindow):
 
     def run(self):
         self.first_run()
-        print(self.__now_open)
+        #self.print_cell_list()
         if self.__now_open != 81:
             self.second_run()
 
