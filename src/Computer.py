@@ -169,6 +169,7 @@ class Computer(EnemyWindow.EnemyWindow):
             self.__cell_list = tmp_cell_list
         else:
             self.speak("Not answer")
+#        self.update_second_step()
         self.update_button_print()
 
     def finish(self):
@@ -177,7 +178,6 @@ class Computer(EnemyWindow.EnemyWindow):
 
     def run(self):
         self.first_run()
-        #self.print_cell_list()
         if self.__now_open != 81:
             self.second_run()
 
