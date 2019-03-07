@@ -156,6 +156,7 @@ class PlayerWindow(window_numpla.Base):
                     else:
                         list_elem.setStyleSheet("background-color: green")
         else:
+            self.__is_confirm = False
             for  i, list_line in enumerate(self.button_box):
                 for j, list_elem in enumerate(list_line):
                     list_elem.setStyleSheet("background-color: white")

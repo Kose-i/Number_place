@@ -2,6 +2,7 @@
 
 import time
 import sys
+import threading
 
 import PlayerWindow
 import ProblemChangeList as probtolist
@@ -16,12 +17,14 @@ if __name__=='__main__':
     if len(sys.argv) == 2:
       prob_str = sys.argv[1]
     else:
-      prob_str = "../problem/problem5.txt"
+      prob_str = "../problem/problem2.txt"
 
     player = PlayerWindow.PlayerWindow()
     enemy = Computer.Computer()
     problem = probtolist.prob_to_list(prob_str)
     player.set_problem(problem)
     enemy.set_problem(problem)
-    player.run()
-    enemy.run()
+    thread1 = threading.Thread(target=player.run)
+    thread2 = threading.Thread(target=enemy.run)
+    thread1.start()
+    thread2.start()
