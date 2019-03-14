@@ -182,8 +182,8 @@ class Computer(EnemyWindow.EnemyWindow):
             self.second_run()
 
 
-#if __name__=='__main__':
-#    enemy = Computer()
-#    problem = probtolist.prob_to_list("../problem/problem1.txt")
-#    enemy.set_problem(problem)
-#    enemy.run()
+if __name__=='__main__':
+    enemy = Computer()
+    problem = probtolist.prob_to_list("../problem/problem1.txt")
+    enemy.set_problem(problem)
+    enemy.run()

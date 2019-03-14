@@ -14,3 +14,14 @@
 | output用メッセージボックス2 | 現在のスタートからの時刻を表示 |
 | finish button | 完了したことを送信 |
 | 確認用 button | problemの位置,追加した要素の位置を表示 |
+
+
+## Class structure
+
+Base Class
+  │
+  ├──>PlayerWindow
+  │
+  └──>EnemyWindow
+       │
+       └──>Computer
