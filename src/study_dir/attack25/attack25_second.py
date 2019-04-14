@@ -4,6 +4,7 @@ import tkinter as tk
 
 x_size = 13
 y_size = 13
+color_num = 0 #TODO Change every turn
 
 def main():
     global x_size, y_size
@@ -44,19 +45,23 @@ def main():
     )
     entry_x.pack(side=tk.LEFT)
     entry_x.focus_set()
-    color_num = 0 #TODO Change every turn
-    def put_color(pos_num, color_num):
+
+    def put_color(pos_num, color_num_):
         canvas[pos_num].itemconfig(
           on_canvas[pos_num],
-          image=img_color[color_num]
+          image=img_color[color_num_]
         )
     def put_stone():
+        global color_num
         value = entry_x.get()
         if not value:
             pass
         elif 0<=int(value) and int(value)<(x_size*y_size):
             num = int(value)
             put_color(num, color_num)
+            color_num = color_num + 1
+            if not (color_num < len(img_color)):
+                color_num = 0
     button = tk.Button(
       frame_x_input,
       width=15,
