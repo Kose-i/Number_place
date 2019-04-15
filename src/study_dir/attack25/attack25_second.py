@@ -9,7 +9,7 @@ color_num = 0 #TODO Change every turn
 def main():
     global x_size, y_size
     root = tk.Tk()
-    root.geometry('700x700')#set window size
+    root.geometry('900x700')#set window size
     root.title('8x8 attack64')
     canvas_width = 50
     canvas_heigh = 50
@@ -40,7 +40,7 @@ def main():
     )
     entry_x = tk.Entry(
       frame_x_input,
-      width=30,
+      width=10,
       font=('Helvetica',14)
     )
     entry_x.pack(side=tk.LEFT)
@@ -64,12 +64,12 @@ def main():
                 color_num = 0
     button = tk.Button(
       frame_x_input,
-      width=15,
+      width=5,
       text='trial',
       command=put_stone
     )
     button.pack(side=tk.LEFT)
-    frame_x_input.place(x=30,y=500)
+    frame_x_input.place(x=700,y=500)
     root.mainloop()
 
 if __name__=='__main__':
